@@ -73,7 +73,7 @@ async function handleSearch(event) {
       return;
     }
 
-    imageList.innerHTML = createMarkup(response.hits);
+    imageList.insertAdjacentHTML('beforeend', createMarkup(response.hits));
     gallery.refresh();
     nextBtn.classList.remove('is-hidden');
 
