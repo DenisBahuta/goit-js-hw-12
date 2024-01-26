@@ -86,10 +86,14 @@ async function handleSearch(event) {
 }
 
 async function fetchImages(value) {
-  const res = await axios.get(
-    `${BASE_URL}/?${searchParams}&q=${value}&page=${page}`
-  );
-  return res.data;
+  try {
+    const res = await axios.get(
+      `${BASE_URL}/?${searchParams}&q=${value}&page=${page}`
+    );
+    return res.data;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
 
 function createMarkup(arr) {
